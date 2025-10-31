@@ -2,17 +2,17 @@
 
 Aplicación móvil desarrollada con React Native y Expo que implementa un sistema CRUD completo para gestionar una colección de películas utilizando SQLite como base de datos local.
 
-## 📋 Características
+## Características
 
-- ✅ **CRUD Completo**: Crear, Leer, Actualizar y Eliminar películas
-- ✅ **Base de datos SQLite**: Persistencia local de datos usando `expo-sqlite`
-- ✅ **Navegación**: Implementada con React Navigation
-- ✅ **Validación de formularios**: Validación de campos obligatorios y formatos
-- ✅ **Confirmación de eliminación**: Diálogo de confirmación antes de eliminar
-- ✅ **Interfaz moderna**: Diseño limpio y responsive
-- ✅ **Persistencia**: Los datos se mantienen al cerrar y reabrir la app
+- CRUD Completo: Crear, Leer, Actualizar y Eliminar películas
+- Base de datos SQLite: Persistencia local de datos usando `expo-sqlite`
+- Navegación: Implementada con React Navigation
+- Validación de formularios: Validación de campos obligatorios y formatos
+- Confirmación de eliminación: Diálogo de confirmación antes de eliminar
+- Interfaz moderna: Diseño limpio y responsive
+- Persistencia: Los datos se mantienen al cerrar y reabrir la app
 
-## 🗄️ Estructura de la Base de Datos
+## Estructura de la Base de Datos
 
 La tabla `movies` contiene los siguientes campos:
 
@@ -24,7 +24,7 @@ La tabla `movies` contiene los siguientes campos:
 | year     | INTEGER | Año de estreno                 |
 | rating   | REAL    | Calificación (0-10)            |
 
-## 📱 Pantallas
+## Pantallas
 
 ### 1. HomeScreen (Pantalla Principal)
 - Muestra la lista de todas las películas guardadas
@@ -38,7 +38,7 @@ La tabla `movies` contiene los siguientes campos:
 - Validación de rangos (año: 1800-2100, rating: 0-10)
 - Botones para guardar o cancelar
 
-## 🚀 Instalación y Ejecución
+## Instalación y Ejecución
 
 ### Prerrequisitos
 
@@ -52,6 +52,7 @@ La tabla `movies` contiene los siguientes campos:
 1. **Clonar el repositorio**
    \`\`\`bash
    git clone <URL_DEL_REPOSITORIO>
+   cd tp2-crud-sqlite
    \`\`\`
 
 2. **Instalar dependencias**
@@ -71,14 +72,14 @@ La tabla `movies` contiene los siguientes campos:
 4. **Ejecutar en dispositivo/emulador**
    - **Android**: Presiona `a` en la terminal o escanea el código QR con Expo Go
    - **iOS**: Presiona `i` en la terminal o escanea el código QR con Expo Go
-   - **Web**: Presiona `w` en la terminal
 
-## 📂 Estructura del Proyecto
+## Estructura del Proyecto
 
 \`\`\`
 tp2-crud-sqlite/
 ├── App.js                      # Configuración de navegación principal
 ├── package.json                # Dependencias del proyecto
+├── app.json                    # Configuración de Expo
 ├── README.md                   # Este archivo
 ├── database/
 │   └── db.js                   # Funciones de base de datos SQLite
@@ -89,15 +90,14 @@ tp2-crud-sqlite/
     └── MovieCard.js            # Componente de tarjeta de película
 \`\`\`
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 - **React Native**: Framework para desarrollo móvil
 - **Expo**: Plataforma para desarrollo rápido
 - **expo-sqlite**: Base de datos SQLite local
 - **React Navigation**: Navegación entre pantallas
-- **React Native Screens**: Optimización de navegación
 
-## 📝 Operaciones CRUD
+## Operaciones CRUD
 
 ### Create (Crear)
 1. Presiona el botón flotante (+) en la pantalla principal
@@ -109,19 +109,12 @@ tp2-crud-sqlite/
 - Los datos se cargan desde SQLite al abrir la app
 
 ### Update (Actualizar)
-1. Presiona el botón "✏️ Editar" en cualquier tarjeta de película
+1. Presiona el botón "Editar" en cualquier tarjeta de película
 2. Modifica los campos deseados
 3. Presiona "Actualizar"
 
 ### Delete (Eliminar)
-1. Presiona el botón "🗑️ Eliminar" en cualquier tarjeta de película
+1. Presiona el botón "Eliminar" en cualquier tarjeta de película
 2. Confirma la eliminación en el diálogo
 3. La película se eliminará permanentemente
 
-## 👨‍💻 Autor
-
-Trabajo Práctico 2 - Desarrollo de Aplicaciones Móviles
-
-## 📄 Licencia
-
-Este proyecto es de uso académico.

@@ -2,7 +2,6 @@ import * as SQLite from "expo-sqlite"
 
 let db
 
-// Inicializar la base de datos
 export const initDatabase = async () => {
   try {
     db = await SQLite.openDatabaseAsync("movies.db")
@@ -23,7 +22,7 @@ export const initDatabase = async () => {
   }
 }
 
-// CREATE - Agregar una nueva película
+
 export const addMovie = async (title, director, year, rating) => {
   try {
     const result = await db.runAsync("INSERT INTO movies (title, director, year, rating) VALUES (?, ?, ?, ?)", [
@@ -34,23 +33,22 @@ export const addMovie = async (title, director, year, rating) => {
     ])
     return result.lastInsertRowId
   } catch (error) {
-    console.error("Error al agregar película:", error)
+    console.error("Error al agregar pelicula:", error)
     throw error
   }
 }
 
-// READ - Obtener todas las películas
+
 export const getAllMovies = async () => {
   try {
     const movies = await db.getAllAsync("SELECT * FROM movies ORDER BY id DESC")
     return movies
   } catch (error) {
-    console.error("Error al obtener películas:", error)
+    console.error("Error al obtener peliculas:", error)
     return []
   }
 }
 
-// UPDATE - Actualizar una película existente
 export const updateMovie = async (id, title, director, year, rating) => {
   try {
     await db.runAsync("UPDATE movies SET title = ?, director = ?, year = ?, rating = ? WHERE id = ?", [
@@ -61,17 +59,16 @@ export const updateMovie = async (id, title, director, year, rating) => {
       id,
     ])
   } catch (error) {
-    console.error("Error al actualizar película:", error)
+    console.error("Error al actualizar pelicula:", error)
     throw error
   }
 }
 
-// DELETE - Eliminar una película
 export const deleteMovie = async (id) => {
   try {
     await db.runAsync("DELETE FROM movies WHERE id = ?", [id])
   } catch (error) {
-    console.error("Error al eliminar película:", error)
+    console.error("Error al eliminar pelicula:", error)
     throw error
   }
 }

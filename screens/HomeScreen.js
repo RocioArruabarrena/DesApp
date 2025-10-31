@@ -1,10 +1,8 @@
-"use client"
-
 import { useState, useEffect, useCallback } from "react"
 import { View, Text, FlatList, StyleSheet, TouchableOpacity, Alert, ActivityIndicator } from "react-native"
 import { useFocusEffect } from "@react-navigation/native"
-import { initDatabase, getAllMovies, deleteMovie } from "../database/db"
-import MovieCard from "../components/MovieCard"
+import { initDatabase, getAllMovies, deleteMovie } from "/database/db"
+import MovieCard from "/components/MovieCard"
 
 export default function HomeScreen({ navigation }) {
   const [movies, setMovies] = useState([])
@@ -28,7 +26,7 @@ export default function HomeScreen({ navigation }) {
   )
 
   const handleDelete = (id, title) => {
-    Alert.alert("Confirmar eliminación", `¿Estás seguro de que deseas eliminar "${title}"?`, [
+    Alert.alert("Confirmar eliminacion", `¿Estás seguro que queres eliminar "${title}"?`, [
       {
         text: "Cancelar",
         style: "cancel",
@@ -60,8 +58,8 @@ export default function HomeScreen({ navigation }) {
     <View style={styles.container}>
       {movies.length === 0 ? (
         <View style={styles.emptyContainer}>
-          <Text style={styles.emptyText}>No hay películas guardadas</Text>
-          <Text style={styles.emptySubtext}>Presiona el botón + para agregar una</Text>
+          <Text style={styles.emptyText}>No hay peliculas guardadas</Text>
+          <Text style={styles.emptySubtext}>Presiona el boton + para agregar una</Text>
         </View>
       ) : (
         <FlatList

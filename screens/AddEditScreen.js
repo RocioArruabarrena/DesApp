@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import {
   View,
@@ -12,7 +10,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native"
-import { addMovie, updateMovie } from "../database/db"
+import { addMovie, updateMovie } from "/database/db"
 
 export default function AddEditScreen({ navigation, route }) {
   const movie = route.params?.movie
@@ -25,7 +23,7 @@ export default function AddEditScreen({ navigation, route }) {
 
   const validateForm = () => {
     if (!title.trim()) {
-      Alert.alert("Error", "El título es obligatorio")
+      Alert.alert("Error", "El titulo es obligatorio")
       return false
     }
     if (!director.trim()) {
@@ -33,11 +31,11 @@ export default function AddEditScreen({ navigation, route }) {
       return false
     }
     if (!year.trim() || isNaN(year) || Number.parseInt(year) < 1800 || Number.parseInt(year) > 2100) {
-      Alert.alert("Error", "Ingresa un año válido (1800-2100)")
+      Alert.alert("Error", "Ingresa un año valido (1800-2100)")
       return false
     }
     if (!rating.trim() || isNaN(rating) || Number.parseFloat(rating) < 0 || Number.parseFloat(rating) > 10) {
-      Alert.alert("Error", "Ingresa una calificación válida (0-10)")
+      Alert.alert("Error", "Ingresa una calificacion valida (0-10)")
       return false
     }
     return true
@@ -49,14 +47,14 @@ export default function AddEditScreen({ navigation, route }) {
     try {
       if (isEditing) {
         await updateMovie(movie.id, title.trim(), director.trim(), Number.parseInt(year), Number.parseFloat(rating))
-        Alert.alert("Éxito", "Película actualizada correctamente")
+        Alert.alert("Éxito", "Pelicula actualizada correctamente")
       } else {
         await addMovie(title.trim(), director.trim(), Number.parseInt(year), Number.parseFloat(rating))
-        Alert.alert("Éxito", "Película agregada correctamente")
+        Alert.alert("Éxito", "Pelicula agregada correctamente")
       }
       navigation.goBack()
     } catch (error) {
-      Alert.alert("Error", "No se pudo guardar la película")
+      Alert.alert("Error", "No se pudo guardar la pelicula")
     }
   }
 

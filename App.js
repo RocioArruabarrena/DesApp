@@ -20,12 +20,12 @@ export default function App() {
           },
         }}
       >
-        <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Mis Películas" }} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Mis Peliculas" }} />
         <Stack.Screen
           name="AddEdit"
           component={AddEditScreen}
           options={({ route }) => ({
-            title: route.params?.movie ? "Editar Película" : "Agregar Película",
+            title: route.params?.movie ? "Editar Pelicula" : "Agregar Pelicula",
           })}
         />
       </Stack.Navigator>

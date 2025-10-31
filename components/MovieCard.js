@@ -8,18 +8,15 @@ export default function MovieCard({ movie, onEdit, onDelete }) {
         <Text style={styles.director}>Director: {movie.director}</Text>
         <View style={styles.details}>
           <Text style={styles.year}>Año: {movie.year}</Text>
-          <View style={styles.ratingContainer}>
-            <Text style={styles.rating}>⭐ {movie.rating.toFixed(1)}</Text>
-          </View>
         </View>
       </View>
 
       <View style={styles.actions}>
         <TouchableOpacity style={styles.editButton} onPress={onEdit}>
-          <Text style={styles.editButtonText}>✏️ Editar</Text>
+          <Text style={styles.editButtonText}>Editar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.deleteButton} onPress={onDelete}>
-          <Text style={styles.deleteButtonText}>🗑️ Eliminar</Text>
+          <Text style={styles.deleteButtonText}>Eliminar</Text>
         </TouchableOpacity>
       </View>
     </View>
