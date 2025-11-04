@@ -10,7 +10,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native"
-import { addMovie, updateMovie } from "/database/db"
+import { addMovie, updateMovie } from "../database/db"
 
 export default function AddEditScreen({ navigation, route }) {
   const movie = route.params?.movie

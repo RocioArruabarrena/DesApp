@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from "react"
 import { View, Text, FlatList, StyleSheet, TouchableOpacity, Alert, ActivityIndicator } from "react-native"
 import { useFocusEffect } from "@react-navigation/native"
-import { initDatabase, getAllMovies, deleteMovie } from "/database/db"
-import MovieCard from "/components/MovieCard"
+import { initDatabase, getAllMovies, deleteMovie } from "../database/db"
+import MovieCard from "../components/MovieCard"
 
 export default function HomeScreen({ navigation }) {
   const [movies, setMovies] = useState([])

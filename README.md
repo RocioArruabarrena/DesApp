@@ -1,93 +1,98 @@
-# TP2 - Aplicación CRUD con SQLite
 
-Aplicación móvil desarrollada con React Native y Expo que implementa un sistema CRUD completo para gestionar una colección de películas utilizando SQLite como base de datos local.
-
-## Características
-
-- CRUD Completo: Crear, Leer, Actualizar y Eliminar películas
-- Base de datos SQLite: Persistencia local de datos usando `expo-sqlite`
-- Navegación: Implementada con React Navigation
-- Validación de formularios: Validación de campos obligatorios y formatos
-- Confirmación de eliminación: Diálogo de confirmación antes de eliminar
-- Interfaz moderna: Diseño limpio y responsive
-- Persistencia: Los datos se mantienen al cerrar y reabrir la app
-
-## Estructura de la Base de Datos
-
-La tabla `movies` contiene los siguientes campos:
-
-| Campo    | Tipo    | Descripción                    |
-|----------|---------|--------------------------------|
-| id       | INTEGER | Clave primaria autoincremental |
-| title    | TEXT    | Título de la película          |
-| director | TEXT    | Director de la película        |
-| year     | INTEGER | Año de estreno                 |
-| rating   | REAL    | Calificación (0-10)            |
-
-## Pantallas
-
-### 1. HomeScreen (Pantalla Principal)
-- Muestra la lista de todas las películas guardadas
-- Botón flotante (+) para agregar nuevas películas
-- Cada tarjeta de película incluye botones para editar y eliminar
-- Mensaje cuando no hay películas guardadas
-
-### 2. AddEditScreen (Agregar/Editar)
-- Formulario para agregar una nueva película o editar una existente
-- Validación de campos obligatorios
-- Validación de rangos (año: 1800-2100, rating: 0-10)
-- Botones para guardar o cancelar
-
-## Instalación y Ejecución
+Estas son las instrucciones claras para ejecutar este proyecto tanto usando Expo (flujo recomendado/administrado) como con React Native CLI (flujo "bare/native"). Los comandos están pensados para ejecutarse desde la terminal Bash en Windows (por ejemplo, `bash.exe`).
 
 ### Prerrequisitos
 
-- Node.js (versión 14 o superior)
+- Node.js (v14+)
 - npm o yarn
-- Expo CLI
-- Expo Go app en tu dispositivo móvil (opcional)
+- Git
+- Para Expo: no es obligatorio instalar herramientas nativas, solo la app Expo Go en tu móvil (opcional)
+- Para React Native CLI (si eliges el flujo nativo): Android Studio + SDK (Windows), Java JDK, y (en macOS) Xcode para iOS
 
-### Pasos de instalación
+---
 
-1. **Clonar el repositorio**
-   \`\`\`bash
-   git clone <URL_DEL_REPOSITORIO>
-   cd tp2-crud-sqlite
-   \`\`\`
+Opción A — Usar Expo (recomendado)
 
-2. **Instalar dependencias**
-   \`\`\`bash
-   npm install
-   \`\`\`
+1. Clona el repositorio y entra en la carpeta del proyecto:
 
-3. **Iniciar la aplicación**
-   \`\`\`bash
-   npm start
-   \`\`\`
-   o
-   \`\`\`bash
-   npx expo start
-   \`\`\`
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd DesApp
+```
 
-4. **Ejecutar en dispositivo/emulador**
-   - **Android**: Presiona `a` en la terminal o escanea el código QR con Expo Go
-   - **iOS**: Presiona `i` en la terminal o escanea el código QR con Expo Go
+2. Instalar dependencias:
+
+```bash
+npm install
+```
+
+3. Iniciar Expo:
+
+```bash
+npx expo start
+```
+
+4. Abrir la app en un dispositivo o emulador:
+
+- En la terminal del servidor Expo:
+   - Presiona `a` para abrir en un emulador Android (si está configurado)
+   - Presiona `i` para abrir en un simulador iOS (macOS solamente)
+   - Presiona `w` para abrir en el navegador (web)
+- Alternativamente, abre la app Expo Go en tu teléfono y escanea el código QR que aparece en la terminal/ventana del navegador.
+
+---
+
+Opción B — Usar React Native CLI (flujo nativo)
+
+
+1. Asegura la instalación de Android Studio (Windows) y la configuración de variables de entorno (ANDROID_HOME, PATH hacia platform-tools).
+
+2. Instala dependencias del proyecto:
+
+```bash
+npm install
+```
+
+3. Ejecuta en Android (desde la raíz del proyecto):
+
+```bash
+npx react-native run-android
+```
+
+4. Ejecuta en iOS (solo en macOS con Xcode):
+
+```bash
+npx react-native run-ios
+```
+
+Aviso: las bibliotecas específicas de Expo (como `expo-sqlite`) pueden no funcionar de forma inmediata en un proyecto creado con React Native CLI sin instalar dependencias nativas equivalentes o configurar el cliente de desarrollo de Expo.
+
+---
+
+
+Comprobación rápida
+
+1. Ejecuta `npm install`.
+2. Ejecuta `npx expo start`.
+3. Desde la terminal pulsa `a` (Android) o escanea el QR con Expo Go.
+
+Con Expo deberías tener la app funcionando en menos de 5 minutos si tienes las herramientas básicas instaladas.
 
 ## Estructura del Proyecto
 
 \`\`\`
-tp2-crud-sqlite/
+tp2-crud/
+├── components/
+│    └── MovieCard.js            # Componente de tarjeta de película
+├── database/
+│   └── db.js                   # Funciones de base de datos SQLite
+├── screens/
+│   ├── AddEditScreen.js        # Pantalla de formulario
+│   └── HomeScreen.js           # Pantalla principal con lista
 ├── App.js                      # Configuración de navegación principal
 ├── package.json                # Dependencias del proyecto
 ├── app.json                    # Configuración de Expo
 ├── README.md                   # Este archivo
-├── database/
-│   └── db.js                   # Funciones de base de datos SQLite
-├── screens/
-│   ├── HomeScreen.js           # Pantalla principal con lista
-│   └── AddEditScreen.js        # Pantalla de formulario
-└── components/
-    └── MovieCard.js            # Componente de tarjeta de película
 \`\`\`
 
 ## Tecnologías Utilizadas
